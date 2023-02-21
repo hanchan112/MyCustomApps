@@ -9,13 +9,13 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyCustomApps"
+        android:theme="@style/Theme.MyCustomApps.NoActionBarNoStatusBar"
         tools:targetApi="31">
         <activity
-            android:name=".BaseActivity"
+            android:name=".basecontent.BaseActivity"
             android:exported="false"
             android:label="@string/title_activity_base"
-            android:theme="@style/Theme.MyCustomApps.NoActionBar" />
+            android:theme="@style/Theme.MyCustomApps.NoActionBarNoStatusBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

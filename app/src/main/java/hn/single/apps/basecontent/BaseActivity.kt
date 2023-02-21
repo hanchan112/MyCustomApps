@@ -1,7 +1,8 @@
 package hn.single.apps.basecontent
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -14,6 +15,12 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
+        //}
         setContentView(initLayoutId())
         initView()
     }
