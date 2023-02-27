@@ -1,10 +1,8 @@
 package hn.single.apps
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import hn.single.apps.basecontent.BaseFragment
 import hn.single.apps.databinding.FragmentHomeBinding
 
@@ -18,12 +16,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.textHome.text = "Fragment Home from base"
+        binding.consCommon1.setOnClickListener {
+            showSuccessMessage("Test success", "Noi dung thong bao")
+        }
+        binding.consCommon2.setOnClickListener {
+            showErrorMessage("Test error", "Noi dung loi")
+        }
     }
 
     companion object {
 
         @JvmStatic
-        fun newInstance() = HomeFragment().apply {        }
+        fun newInstance() = HomeFragment().apply { }
     }
 }
