@@ -9,5 +9,23 @@
         android:id="@+id/homeFragment"
         android:name="hn.single.apps.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_postFragment"
+            app:destination="@id/postFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="hn.single.apps.features.retrofit_coroutines.PostFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_post">
+        <action
+            android:id="@+id/action_postFragment_to_listPostFragment"
+            app:destination="@id/listPostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listPostFragment"
+        android:name="hn.single.apps.features.retrofit_coroutines_list.ListPostFragment"
+        android:label="fragment_list_post"
+        tools:layout="@layout/fragment_list_post" />
 </navigation>
