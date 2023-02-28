@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="vertical"
+    tools:context=".features.dictionary.HomeDictionaryFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tra cau Viet Anh"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/inputTextTrans"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:autofillHints="@null"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="?android:attr/actionModeWebSearchDrawable"
+            android:elevation="10dp"
+            android:ems="10"
+            android:hint="@string/search_for"
+            android:inputType="textPersonName"
+            android:padding="@dimen/_10dp"
+            android:textSize="@dimen/_14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/consActionBar" />
+
+        <TextView
+            android:id="@+id/textTransType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_32dp"
+            android:elevation="20dp"
+            android:padding="@dimen/_10dp"
+            android:text="Việt - Anh"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sp"
+            app:layout_constraintBottom_toBottomOf="@id/inputTextTrans"
+            app:layout_constraintEnd_toEndOf="@id/inputTextTrans"
+            app:layout_constraintTop_toTopOf="@id/inputTextTrans" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutTrans"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_34dp"
+            android:layout_marginTop="@dimen/_16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputTextTrans"
+            app:tabIndicatorHeight="@dimen/_0dp"
+            app:tabMode="auto"
+            app:tabRippleColor="@null"
+            app:tabTextAppearance="@style/NormalTextTabLayout" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerTrans"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_0dp"
+            android:background="@drawable/background_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayoutTrans" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
