@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.viewbinding.ViewBinding
 import hn.single.apps.R
+import hn.single.apps.features.common.PlaceHolderRepository
+import hn.single.apps.features.common.ViewModelFactory
 
 /**
  * A simple base fragment.
@@ -17,9 +19,12 @@ import hn.single.apps.R
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
-abstract class BaseFragment<VB : ViewBinding>(private val layoutInflater: Inflate<VB>) : Fragment() {
+abstract class BaseFragment<VB : ViewBinding>(
+    private val layoutInflater: Inflate<VB>
+) : Fragment() {
 
     private var _binding: VB? = null
+    protected lateinit var vmFactory: ViewModelFactory
     val binding get() = _binding!!
     var notifyDialog: NotifyCommonDialog? = null
 
@@ -32,8 +37,28 @@ abstract class BaseFragment<VB : ViewBinding>(private val layoutInflater: Inflat
         return _binding?.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        vmFactory = ViewModelFactory(PlaceHolderRepository())
+    }
     fun fragmentNavController(): NavController? {
         return (activity as? BaseActivity)?.activityNavController()
+    }
+
+    fun showLoadingProgress(isShow: Boolean) {
+        (activity as BaseActivity).showLoadingProgress(isShow)
+    }
+
+    fun View?.show() {
+        this?.visibility = View.VISIBLE
+    }
+
+    fun View?.gone() {
+        this?.visibility = View.GONE
+    }
+
+    fun View?.invisible() {
+        this?.visibility = View.INVISIBLE
     }
 
     open fun showToastMessage(

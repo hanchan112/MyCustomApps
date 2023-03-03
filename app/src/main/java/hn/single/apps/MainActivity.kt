@@ -1,6 +1,6 @@
 package hn.single.apps
 
-import android.os.Bundle
+import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import hn.single.apps.basecontent.BaseActivity
@@ -22,4 +22,6 @@ class MainActivity : BaseActivity() {
     override fun initLayoutId(): Int {
         return R.layout.activity_main
     }
+
+    override fun getLoadingId(): View? = findViewById(R.id.loadingView)
 }
